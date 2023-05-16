@@ -1,0 +1,52 @@
+.card-container {
+  height: 250rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(36rem, 20rem);
+  background-color: rgba(251, 247, 255, 0.874);
+  justify-items: center;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  width: 20rem;
+  height: 30rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+.card img {
+  width: 8rem;
+  margin: 5rem auto 5rem;
+  display: block;
+}
+
+
+.card-body {
+  padding: 1rem;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-description {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.card-price {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.header {
+  justify-content: center;
+  display: flex;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
