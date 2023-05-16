@@ -1,8 +1,11 @@
 .card-container {
   height: 250rem;
-  display: grid;
+  /* display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: minmax(36rem, 20rem);
+  grid-auto-rows: minmax(36rem, 20rem); */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
   background-color: rgba(251, 247, 255, 0.874);
   justify-items: center;
 }

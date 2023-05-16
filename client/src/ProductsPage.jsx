@@ -6,7 +6,7 @@ const ProductsPage = () => {
     const [showProducts, setShowProducts] = useState(false);
 
     useEffect(() => {
-        fetch("https://fakestoreapi.com/products?limit=5")
+        fetch("http://localhost:7000/products")
             .then(res => res.json())
             .then((data) => {
                 setProducts(data)
@@ -19,37 +19,37 @@ const ProductsPage = () => {
 
 
     // ! connect the endpoint with this button
-    const [newProduct, setNewProduct] = useState({
-        title: '',
-        description: '',
-        price: '',
-        image: '',
-        category: '',
-    });
+    // const [newProduct, setNewProduct] = useState({
+    //     title: 't shirt',
+    //     description: 'jfkdlsjfl;kdsjfkldf',
+    //     price: '525',
+    //     image: '',
 
-    const addProduct = () => {
-        fetch('http://localhost:8000/products', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(newProduct),
-        })
-            .then((res) => res.json())
-            .then((data) => {
-                // Update the products list with the new product
-                setProducts([...products, data]);
-                // Reset the new product state
-                setNewProduct({
-                    title: products.title,
-                    description: '',
-                    price: '',
-                    image: '',
-                    category: '',
-                });
-            })
-            .catch((error) => console.error('Error:', error));
-    };
+    // });
+
+    // const addProduct = () => {
+    //     fetch('http://localhost:7000/products', {
+    //         method: 'POST',
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //         },
+    //         body: JSON.stringify(newProduct),
+    //     })
+    //         .then((res) => res.json())
+    //         .then((data) => {
+    //             // Update the products list with the new product
+    //             setProducts([...products, data]);
+    //             // Reset the new product state
+    //             setNewProduct({
+    //                 title: products.title,
+    //                 description: products.description,
+    //                 price: products.price,
+    //                 image: products.image,
+
+    //             });
+    //         })
+    //         .catch((error) => console.error('Error:', error));
+    // };
 
 
 
@@ -64,7 +64,7 @@ const ProductsPage = () => {
             <input onChange={(e) => setSearch(e.target.value)}
                 placeholder='Search'
             ></input>
-            <button onClick={addProduct}>Add Product</button>
+            {/* <button onClick={addProduct}>Add Product</button> */}
 
             <button onClick={() => setShowProducts(true)}>Show Products</button>
             {showProducts && (

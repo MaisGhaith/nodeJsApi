@@ -6,8 +6,13 @@ app.use(cors());
 app.use(express.json()); //  built-in middleware function in Express.
 
 //      end point
-app.get('/message', (req, res) => {
-    res.json({ message: "Hello from server" })
+app.get('/Products', (req, res) => {
+    fetch("https://fakestoreapi.com/products")
+        .then(res => res.json())
+        .then((data) => {
+            res.send(data)
+        })
+
 })
 // we used app.get to create a get route, and it's take two arguments
 // the first is the path of the endpoint  '/message'
@@ -16,7 +21,7 @@ app.get('/message', (req, res) => {
 // Get in one of the http methods
 // since we returning a json object, we are using res.json() to send a json response
 
-app.post('/products', (req, res) => {
+app.post('/Products', (req, res) => {
     const newProduct = req.body;
     // do something with the new product data, e.g. save it to a database
     res.status(201).json({ message: "Product added successfully" });
@@ -26,7 +31,7 @@ app.post('/products', (req, res) => {
 
 
 // ! start the server 
-app.listen(8000, () => {
+app.listen(7000, () => {
     console.log('server is running on port 8000')
 })
 
