@@ -69,27 +69,29 @@ const ProductsPage = () => {
             <button onClick={() => setShowProducts(true)}>Show Products</button>
             {showProducts && (
                 <div className='card-container'>
+                    {products
+                        .filter((item) => {
+                            const itemTitle = item.title.toLowerCase();
+                            const itemId = item.id ?? '';
+                            const itemPrice = item.price ?? '';
+
+                            return search.toLowerCase() === '' ||
+                                itemTitle.includes(search) ||
+                                itemId.toString().includes(search) ||
+                                itemPrice.toString().includes(search);
+                        })
+                        .map((product) => (
 
 
-
-                    {products.filter((item) => {
-                        return search.toLowerCase() === ''
-                            ? item
-                            : item.title.toLowerCase().includes(search)
-                            || item.id.toString().includes(search)
-                            || item.price.toString().includes(search);
-                    }).map(product => (
-
-
-                        <div className='card' key={product.id}>
-                            <img src={product.image} alt={product.title} />
-                            <div className='card-body'>
-                                <h2 className='card-title'>{product.title}</h2>
-                                <p className='card-price'>${product.price}</p>
-                                <p className='card-description'>{product.description}</p>
+                            <div className='card' key={product.id}>
+                                <img src={product.image} alt={product.title} />
+                                <div className='card-body'>
+                                    <h2 className='card-title'>{product.title}</h2>
+                                    <p className='card-price'>${product.price}</p>
+                                    <p className='card-description'>{product.description}</p>
+                                </div>
                             </div>
-                        </div>
-                    ))}
+                        ))}
                 </div>
             )}
         </div>

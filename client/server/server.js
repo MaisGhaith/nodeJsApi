@@ -21,11 +21,14 @@ app.get('/Products', (req, res) => {
 // Get in one of the http methods
 // since we returning a json object, we are using res.json() to send a json response
 
-app.post('/Products', (req, res) => {
-    const newProduct = req.body;
-    // do something with the new product data, e.g. save it to a database
-    res.status(201).json({ message: "Product added successfully" });
-});
+
+
+
+// app.post('/Products', (req, res) => {
+//     const newProduct = req.body;
+//     // do something with the new product data, e.g. save it to a database
+//     res.status(201).json({ message: "Product added successfully" });
+// });
 
 
 
